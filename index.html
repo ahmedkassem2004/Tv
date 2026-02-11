@@ -1,230 +1,299 @@
-<!DOCTYPE html>      <html lang="es">
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Al-Alam TV | 11.000 Canales Mundiales FULL HD</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
 
-<head>          
-  <meta charset="UTF-8">          
-  <title>Basar TV | 11.000 Canales Mundiales FULL HD</title>          
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>        <style>          
-    :root {          
-      --rojo: #e60000;          
-      --rojo-dark: #b30000;          
-      --negro: #121212;          
-      --blanco: #ffffff;          
-      --shadow: 0 10px 30px rgba(0,0,0,0.1);          
-      --font: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;          
-    }        * { margin: 0; padding: 0; box-sizing: border-box; font-family: var(--font); }          /* --- PANTALLA DE CARGA (5 SEGUNDOS) --- */
-#loader {
-position: fixed;
-top: 0; left: 0;
-width: 100%; height: 100%;
-background: var(--negro);
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
-z-index: 99999;
-transition: opacity 0.8s ease, visibility 0.8s;
-}
+  <style>
+    :root {
+      --rojo: #e60000;
+      --rojo-dark: #b30000;
+      --negro: #121212;
+      --blanco: #ffffff;
+      --shadow: 0 10px 30px rgba(0,0,0,0.1);
+      --font: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      --font-firma: 'Dancing Script', cursive;
+    }
 
-.loader-logo { margin-bottom: 30px; animation: pulseLogo 2s infinite; }
-@keyframes pulseLogo {
-0%, 100% { transform: scale(1); opacity: 0.8; }
-50% { transform: scale(1.1); opacity: 1; }
-}
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: var(--font); }
+    
+    /* --- PANTALLA DE CARGA --- */
+    #loader {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: var(--negro);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      z-index: 99999;
+      transition: opacity 0.8s ease, visibility 0.8s;
+    }
 
-.progress-container { width: 200px; height: 4px; background: rgba(255,255,255,0.1); border-radius: 10px; overflow: hidden; }
-.progress-bar { width: 0%; height: 100%; background: var(--rojo); transition: width 5s linear; }
-.loader-text { color: white; margin-top: 15px; font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; opacity: 0.7; }
+    .loader-logo { margin-bottom: 30px; animation: pulseLogo 2s infinite; }
+    @keyframes pulseLogo {
+      0%, 100% { transform: scale(1); opacity: 0.8; }
+      50% { transform: scale(1.1); opacity: 1; }
+    }
 
-body.loaded #loader { opacity: 0; visibility: hidden; }
+    .progress-container { width: 200px; height: 4px; background: rgba(255,255,255,0.1); border-radius: 10px; overflow: hidden; }
+    .progress-bar { width: 0%; height: 100%; background: var(--rojo); transition: width 5s linear; }
+    .loader-text { color: white; margin-top: 15px; font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; opacity: 0.7; }
 
-/* --- ESTILOS GENERALES --- */
-body { background-color: #fcfcfc; color: #333; overflow-x: hidden; scroll-behavior: smooth; }
-header {
-height: 100vh;
-background: linear-gradient(135deg, var(--rojo), var(--rojo-dark));
-display: flex; flex-direction: column; justify-content: center; align-items: center;
-color: white; text-align: center; padding: 20px;
-clip-path: polygon(0 0, 100% 0, 100% 92%, 0% 100%);
-}
+    body.loaded #loader { opacity: 0; visibility: hidden; }
 
-.logo-container {
-background: white; width: 120px; height: 120px; border-radius: 50%;
-display: flex; align-items: center; justify-content: center;
-margin-bottom: 25px; box-shadow: 0 15px 35px rgba(0,0,0,0.2);
-}
+    /* --- ESTILOS GENERALES --- */
+    body { background-color: #fcfcfc; color: #333; overflow-x: hidden; scroll-behavior: smooth; }
+    header {
+      height: 100vh;
+      background: linear-gradient(135deg, var(--rojo), var(--rojo-dark));
+      display: flex; flex-direction: column; justify-content: center; align-items: center;
+      color: white; text-align: center; padding: 20px;
+      clip-path: polygon(0 0, 100% 0, 100% 92%, 0% 100%);
+    }
 
-header h1 { font-size: clamp(2.5rem, 8vw, 4rem); font-weight: 900; margin-bottom: 10px; }
-header p { font-size: 1.2rem; max-width: 700px; opacity: 0.95; line-height: 1.5; margin-bottom: 30px; }
+    .logo-container {
+      background: white; width: 130px; height: 130px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 25px; box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+    }
 
-.btn-hero {
-background: white; color: var(--rojo); padding: 18px 45px;
-border-radius: 50px; text-decoration: none; font-weight: 800; transition: 0.3s;
-text-transform: uppercase; box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-}
-.btn-hero:hover { transform: translateY(-3px); box-shadow: 0 15px 30px rgba(0,0,0,0.2); }
+    .firma { font-family: var(--font-firma) !important; font-size: 1.2em; }
 
-section { padding: 60px 20px; max-width: 1200px; margin: auto; }
-.reveal { opacity: 0; transform: translateY(40px); transition: all 0.9s ease; }
-.reveal.active { opacity: 1; transform: translateY(0); }
+    header h1 { font-size: clamp(3rem, 10vw, 5rem); font-weight: 700; margin-bottom: 10px; font-family: var(--font-firma); }
+    header p { font-size: 1.2rem; max-width: 700px; opacity: 0.95; line-height: 1.5; margin-bottom: 30px; }
 
-.section-head { text-align: center; margin-bottom: 40px; }
-.section-head h2 { font-size: 2.2rem; margin-bottom: 10px; }
-.section-head .bar { width: 50px; height: 4px; background: var(--rojo); margin: auto; }
+    .btn-hero {
+      background: white; color: var(--rojo); padding: 18px 45px;
+      border-radius: 50px; text-decoration: none; font-weight: 800; transition: 0.3s;
+      text-transform: uppercase; box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+    .btn-hero:hover { transform: translateY(-3px); box-shadow: 0 15px 30px rgba(0,0,0,0.2); }
 
-/* --- GRIDS --- */
-.channels-grid {
-display: grid;
-grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-gap: 20px;
-}
-.channel-box {
-background: white; padding: 20px; border-radius: 20px; text-align: center;
-border: 1px solid #eee; transition: 0.3s;
-}
-.channel-box:hover { border-color: var(--rojo); transform: translateY(-5px); }
-.channel-box img { height: 45px; max-width: 100%; object-fit: contain; margin-bottom: 10px; }
+    section { padding: 60px 20px; max-width: 1200px; margin: auto; }
+    .reveal { opacity: 0; transform: translateY(40px); transition: all 0.9s ease; }
+    .reveal.active { opacity: 1; transform: translateY(0); }
 
-.flags-grid {
-display: grid;
-grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
-gap: 12px;
-}
-.flag-card {
-background: white; padding: 10px; border-radius: 12px; text-align: center;
-border: 1px solid #f0f0f0; transition: 0.2s;
-}
-.flag-card img { width: 100%; height: 35px; object-fit: contain; margin-bottom: 5px; }
-.flag-card strong { font-size: 0.75rem; display: block; color: #555; }
+    .section-head { text-align: center; margin-bottom: 40px; }
+    .section-head h2 { font-size: 2.2rem; margin-bottom: 10px; }
+    .section-head .bar { width: 50px; height: 4px; background: var(--rojo); margin: auto; }
 
-/* --- FAQ --- */
-.faq-container { max-width: 800px; margin: auto; }
-.faq-item { background: white; margin-bottom: 10px; border-radius: 12px; border: 1px solid #eee; overflow: hidden; }
-.faq-btn { width: 100%; padding: 20px; text-align: left; background: none; border: none; font-weight: 700; cursor: pointer; display: flex; justify-content: space-between; }
-.faq-content { max-height: 0; overflow: hidden; transition: 0.3s ease-out; background: #fafafa; }
-.faq-item.active .faq-content { max-height: 200px; padding: 20px; }
+    /* --- GRIDS --- */
+    .channels-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 20px;
+    }
+    .channel-box {
+      background: white; padding: 20px; border-radius: 20px; text-align: center;
+      border: 1px solid #eee; transition: 0.3s;
+    }
+    .channel-box:hover { border-color: var(--rojo); transform: translateY(-5px); }
+    .channel-box img { height: 45px; max-width: 100%; object-fit: contain; margin-bottom: 10px; }
 
-/* --- WHATSAPP --- */
-.wa-float {
-position: fixed; bottom: 30px; right: 30px; background: #25d366;
-width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
-box-shadow: 0 8px 25px rgba(0,0,0,0.2); z-index: 999; color: white; text-decoration: none;
-animation: bounce 2s infinite;
-}
-@keyframes bounce { 0%, 100% {transform: translateY(0);} 50% {transform: translateY(-10px);} }
+    .flags-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+      gap: 12px;
+    }
+    .flag-card {
+      background: white; padding: 10px; border-radius: 12px; text-align: center;
+      border: 1px solid #f0f0f0; transition: 0.2s;
+    }
+    .flag-card img { width: 100%; height: 35px; object-fit: contain; margin-bottom: 5px; }
+    .flag-card strong { font-size: 0.75rem; display: block; color: #555; }
 
-footer { background: #111; color: white; padding: 40px 20px; text-align: center; }
+    /* --- NUEVA SECCIÓN: REQUISITOS --- */
+    .prep-box {
+      background: #fff;
+      border-left: 5px solid var(--rojo);
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: var(--shadow);
+      margin-top: 20px;
+    }
+    .prep-list { list-style: none; margin-top: 15px; }
+    .prep-list li { margin-bottom: 15px; display: flex; align-items: center; font-size: 1.1rem; }
+    .prep-list li::before { content: "💬"; margin-right: 15px; font-size: 1.2rem; }
 
-</style>      </head>
+    /* --- FAQ --- */
+    .faq-container { max-width: 800px; margin: auto; }
+    .faq-item { background: white; margin-bottom: 10px; border-radius: 12px; border: 1px solid #eee; overflow: hidden; }
+    .faq-btn { width: 100%; padding: 20px; text-align: left; background: none; border: none; font-weight: 700; cursor: pointer; display: flex; justify-content: space-between; }
+    .faq-content { max-height: 0; overflow: hidden; transition: 0.3s ease-out; background: #fafafa; }
+    .faq-item.active .faq-content { max-height: 200px; padding: 20px; }
 
-<body>      <div id="loader">          
-  <div class="loader-logo">          
-    <svg width="100" height="100" viewBox="0 0 140 140">          
-      <text x="70" y="95" text-anchor="middle" fill="white" font-size="70" font-family="serif" font-weight="bold" style="font-style:italic">بصر</text>          
-    </svg>          
-  </div>          
-  <div class="progress-container">          
-    <div class="progress-bar" id="pBar"></div>          
-  </div>          
-  <div class="loader-text">Conectando a 11,000 canales...</div>          
-</div>      <a href="https://wa.me/573238383034" class="wa-float" target="_blank">          
-  <svg width="30" height="30" fill="currentColor" viewBox="0 0 16 16"><path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326z"/></svg>          
-</a>      <header>          
-  <div class="logo-container animate__animated animate__zoomIn">          
-    <svg width="80" height="80" viewBox="0 0 140 140">          
-      <text x="70" y="95" text-anchor="middle" fill="#e60000" font-size="70" font-family="serif" font-weight="bold" style="font-style:italic">بصر</text>          
-    </svg>          
-  </div>          
-  <h1 class="animate__animated animate__fadeInDown">Basar TV</h1>          
-  <p class="animate__animated animate__fadeInUp">          
-    Tu televisor ahora es mundial. Accede a <b>más de 11.000 canales internacionales</b>,           
-    deportes en vivo y todo el contenido de la Liga Árabe en <b>FULL HD</b>.          
-  </p>          
-  <a href="https://wa.me/573238383034" class="btn-hero animate__animated animate__fadeInUp">Instalar Ahora</a>          
-</header>      <section class="reveal">          
-  <div class="section-head">          
-    <h2>Canales Internacionales</h2>          
-    <div class="bar"></div>          
-  </div>          
-  <div class="channels-grid">          
-    <div class="channel-box"><img src="https://upload.wikimedia.org/wikipedia/en/f/f2/Aljazeera_eng.svg"><span>Al Jazeera</span></div>          
-    <div class="channel-box"><img src="https://upload.wikimedia.org/wikipedia/commons/2/2e/Al_Jadeed_logo.png"><span>Al Jadeed</span></div>          
-    <div class="channel-box"><img src="https://upload.wikimedia.org/wikipedia/commons/e/e9/MTV_Lebanon_logo.png"><span>MTV Lebanon</span></div>          
-    <div class="channel-box"><img src="https://upload.wikimedia.org/wikipedia/en/7/70/MBC_Group_logo.svg"><span>MBC Group</span></div>          
-  </div>          
-</section>      <section class="reveal" style="background: #f9f9f9; border-radius: 40px;">          
-  <div class="section-head">          
-    <h2>Cobertura Total Liga Árabe</h2>          
-    <div class="bar"></div>          
-  </div>          
-  <div class="flags-grid">          
-    <div class="flag-card"><img src="https://upload.wikimedia.org/wikipedia/commons/7/77/Flag_of_Algeria.svg"><strong>Argelia</strong></div>          
-    <div class="flag-card"><img src="https://upload.wikimedia.org/wikipedia/commons/0/0d/Flag_of_Saudi_Arabia.svg"><strong>Arabia Saudí</strong></div>          
-    <div class="flag-card"><img src="https://upload.wikimedia.org/wikipedia/commons/2/2c/Flag_of_Bahrain.svg"><strong>Baréin</strong></div>          
-    <div class="flag-card"><img src="https://upload.wikimedia.org/wikipedia/commons/9/94/Flag_of_the_Comoros.svg"><strong>Comoras</strong></div>          
-    <div class="flag-card"><img src="https://upload.wikimedia.org/wikipedia/commons/3/34/Flag_of_Djibouti.svg"><strong>Yibuti</strong></div>          
-    <div class="flag-card"><img src="https://upload.wikimedia.org/wikipedia/commons/f/fe/Flag_of_Egypt.svg"><strong>Egipto</strong></div>          
-    <div class="flag-card"><img src="https://upload.wikimedia.org/wikipedia/commons/c/cb/Flag_of_the_United_Arab_Emirates.svg"><strong>E. Árabes</strong></div>          
-    <div class="flag-card"><img src="https://upload.wikimedia.org/wikipedia/commons/f/f6/Flag_of_Iraq.svg"><strong>Irak</strong></div>          
-    <div class="flag-card"><img src="https://upload.wikimedia.org/wikipedia/commons/c/c0/Flag_of_Jordan.svg"><strong>Jordania</strong></div>          
-    <div class="flag-card"><img src="https://upload.wikimedia.org/wikipedia/commons/a/aa/Flag_of_Kuwait.svg"><strong>Kuwait</strong></div>          
-    <div class="flag-card"><img src="https://upload.wikimedia.org/wikipedia/commons/5/59/Flag_of_Lebanon.svg"><strong>Líbano</strong></div>          
-    <div class="flag-card"><img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Flag_of_Libya.svg"><strong>Libia</strong></div>          
-    <div class="flag-card"><img src="https://upload.wikimedia.org/wikipedia/commons/2/2c/Flag_of_Morocco.svg"><strong>Marruecos</strong></div>          
-    <div class="flag-card"><img src="https://upload.wikimedia.org/wikipedia/commons/4/43/Flag_of_Mauritania.svg"><strong>Mauritania</strong></div>          
-    <div class="flag-card"><img src="https://upload.wikimedia.org/wikipedia/commons/d/dd/Flag_of_Oman.svg"><strong>Omán</strong></div>          
-    <div class="flag-card"><img src="https://upload.wikimedia.org/wikipedia/commons/0/00/Flag_of_Palestine.svg"><strong>Palestina</strong></div>          
-    <div class="flag-card"><img src="https://upload.wikimedia.org/wikipedia/commons/6/65/Flag_of_Qatar.svg"><strong>Catar</strong></div>          
-    <div class="flag-card"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a0/Flag_of_Somalia.svg"><strong>Somalia</strong></div>          
-    <div class="flag-card"><img src="https://upload.wikimedia.org/wikipedia/commons/0/01/Flag_of_Sudan.svg"><strong>Sudán</strong></div>          
-    <div class="flag-card"><img src="https://upload.wikimedia.org/wikipedia/commons/5/54/Flag_of_Syria_%282025-%29.svg"><strong>Siria</strong></div>          
-    <div class="flag-card"><img src="https://upload.wikimedia.org/wikipedia/commons/c/ce/Flag_of_Tunisia.svg"><strong>Túnez</strong></div>          
-    <div class="flag-card"><img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Flag_of_Yemen.svg"><strong>Yemen</strong></div>          
-  </div>          
-</section>      <section class="reveal">          
-  <div class="section-head">          
-    <h2>Más de 11.000 Canales Mundiales</h2>          
-    <div class="bar"></div>          
-  </div>          
-  <div class="flags-grid">          
-    <div class="flag-card"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a4/Flag_of_the_United_States.svg"><strong>USA</strong></div>          
-    <div class="flag-card"><img src="https://upload.wikimedia.org/wikipedia/commons/9/9a/Flag_of_Spain.svg"><strong>España</strong></div>          
-    <div class="flag-card"><img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Flag_of_Brazil.svg"><strong>Brasil</strong></div>          
-    <div class="flag-card"><img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg"><strong>Francia</strong></div>          
-    <div class="flag-card"><img src="https://upload.wikimedia.org/wikipedia/commons/b/ba/Flag_of_Germany.svg"><strong>Alemania</strong></div>          
-    <div class="flag-card"><img src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"><strong>Italia</strong></div>          
-    <div class="flag-card"><img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Flag_of_the_People%27s_Republic_of_China.svg"><strong>China</strong></div>          
-    <div class="flag-card"><img src="https://upload.wikimedia.org/wikipedia/commons/9/9e/Flag_of_Japan.svg"><strong>Japón</strong></div>          
-    <div class="flag-card"><img src="https://upload.wikimedia.org/wikipedia/commons/2/21/Flag_of_Colombia.svg"><strong>Colombia</strong></div>          
-  </div>          
-</section>      <section class="reveal">          
-  <div class="faq-container">          
-    <div class="faq-item">          
-      <button class="faq-btn">¿Necesito antena parabólica? <span>▼</span></button>          
-      <div class="faq-content"><p>No, solo necesitas internet. Nuestra tecnología procesa los 11.000 canales vía IPTV sin cables externos.</p></div>          
-    </div>          
-    <div class="faq-item">          
-      <button class="faq-btn">¿La calidad es FULL HD? <span>▼</span></button>          
-      <div class="faq-content"><p>Sí, el sistema soporta resolución <b>FULL HD</b> y alta definición para que disfrutes la mejor imagen en tu hogar en Maicao.</p></div>          
-    </div>          
-  </div>          
-</section>      <footer>          
-  <p>© 2026 <b>Basar TV</b> · Maicao, La Guajira</p>          
-</footer>      <script>          
-  window.addEventListener('load', () => {          
-    document.getElementById('pBar').style.width = '100%';          
-    setTimeout(() => {          
-      document.body.classList.add('loaded');          
-      revealElements();          
-    }, 5000);          
-  });        const revealElements = () => {  
-const reveals = document.querySelectorAll('.reveal');  
-reveals.forEach(el => {  
-if (el.getBoundingClientRect().top < window.innerHeight - 100) el.classList.add('active');  
-});  
-};  
-window.addEventListener('scroll', revealElements);  document.querySelectorAll('.faq-btn').forEach(btn => {
-btn.addEventListener('click', () => btn.parentElement.classList.toggle('active'));
-});
-</script>      </body>
+    /* --- WHATSAPP MEJORADO --- */
+    .wa-float {
+      position: fixed; bottom: 30px; right: 30px; background: #25d366;
+      padding: 10px 20px; border-radius: 50px; display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.2); z-index: 999; color: white; text-decoration: none;
+      font-weight: bold; gap: 10px;
+      animation: bounce 2s infinite;
+    }
+    @keyframes bounce { 0%, 100% {transform: translateY(0);} 50% {transform: translateY(-10px);} }
 
-</html>      
+    footer { background: #111; color: white; padding: 40px 20px; text-align: center; }
+  </style>
+</head>
+<body>
+
+<div id="loader">
+  <div class="loader-logo">
+    <svg width="120" height="120" viewBox="0 0 140 140">
+      <text x="70" y="90" text-anchor="middle" fill="white" font-size="60" font-family="serif" font-weight="bold">العالم</text>
+    </svg>
+  </div>
+  <div class="progress-container">
+    <div class="progress-bar" id="pBar"></div>
+  </div>
+  <div class="loader-text">Cargando Al-Alam TV...</div>
+</div>
+
+<a href="https://wa.me/573238383034" class="wa-float" target="_blank">
+  <svg width="25" height="25" fill="currentColor" viewBox="0 0 16 16">
+    <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326z"/>
+  </svg>
+  <span>¡Contáctanos ahora!</span>
+</a>
+
+<header>
+  <div class="logo-container animate__animated animate__zoomIn">
+    <svg width="110" height="110" viewBox="0 0 140 140">
+      <text x="70" y="80" text-anchor="middle" fill="#e60000" font-size="50" font-family="serif" font-weight="bold">العالم</text>
+      <text x="70" y="115" text-anchor="middle" fill="#e60000" font-size="18" font-family="'Dancing Script', cursive">Al-Alam TV</text>
+    </svg>
+  </div>
+  <h1 class="animate__animated animate__fadeInDown">Al-Alam TV</h1>
+  <p class="animate__animated animate__fadeInUp">
+    Tu televisor ahora es mundial. Accede a <b>más de 11.000 canales internacionales</b>, 
+    deportes en vivo y todo el contenido de la Liga Árabe en <b>FULL HD</b>.
+  </p>
+  <a href="https://wa.me/573238383034" class="btn-hero animate__animated animate__fadeInUp">Instalar Ahora</a>
+</header>
+
+<section class="reveal">
+  <div class="section-head">
+    <h2>Canales Internacionales</h2>
+    <div class="bar"></div>
+  </div>
+  <div class="channels-grid">
+    <div class="channel-box"><img src="https://upload.wikimedia.org/wikipedia/en/f/f2/Aljazeera_eng.svg"><span>Al Jazeera</span></div>
+    <div class="channel-box"><img src="https://upload.wikimedia.org/wikipedia/commons/2/2e/Al_Jadeed_logo.png"><span>Al Jadeed</span></div>
+    <div class="channel-box"><img src="https://upload.wikimedia.org/wikipedia/commons/e/e9/MTV_Lebanon_logo.png"><span>MTV Lebanon</span></div>
+    <div class="channel-box"><img src="https://upload.wikimedia.org/wikipedia/en/7/70/MBC_Group_logo.svg"><span>MBC Group</span></div>
+  </div>
+</section>
+
+<section class="reveal">
+  <div class="section-head">
+    <h2>Antes de contactarnos</h2>
+    <p>Para brindarte la mejor ayuda, ten lista esta información:</p>
+    <div class="bar"></div>
+  </div>
+  <div class="prep-box">
+    <ul class="prep-list">
+      <li><b>¿Qué marca es tu televisor?</b> (Samsung, LG, Sony, etc.)</li>
+      <li><b>¿Es un Smart TV moderno o es antiguo?</b></li>
+      <li><b>¿Tienes algún dispositivo extra?</b> (TV Box, Fire Stick, Roku, etc.)</li>
+      <li><b>¿Tu conexión a internet es estable?</b></li>
+    </ul>
+    <p style="margin-top:20px; font-style:italic; text-align:center;">¡Con esto podré instalarte el servicio en minutos!</p>
+  </div>
+</section>
+
+<section class="reveal" style="background: #f9f9f9; border-radius: 40px;">
+  <div class="section-head">
+    <h2>Cobertura Total Liga Árabe</h2>
+    <div class="bar"></div>
+  </div>
+  <div class="flags-grid">
+    <div class="flag-card"><img src="https://upload.wikimedia.org/wikipedia/commons/7/77/Flag_of_Algeria.svg"><strong>Argelia</strong></div>
+    <div class="flag-card"><img src="https://upload.wikimedia.org/wikipedia/commons/0/0d/Flag_of_Saudi_Arabia.svg"><strong>Arabia Saudí</strong></div>
+    <div class="flag-card"><img src="https://upload.wikimedia.org/wikipedia/commons/2/2c/Flag_of_Bahrain.svg"><strong>Baréin</strong></div>
+    <div class="flag-card"><img src="https://upload.wikimedia.org/wikipedia/commons/9/94/Flag_of_the_Comoros.svg"><strong>Comoras</strong></div>
+    <div class="flag-card"><img src="https://upload.wikimedia.org/wikipedia/commons/3/34/Flag_of_Djibouti.svg"><strong>Yibuti</strong></div>
+    <div class="flag-card"><img src="https://upload.wikimedia.org/wikipedia/commons/f/fe/Flag_of_Egypt.svg"><strong>Egipto</strong></div>
+    <div class="flag-card"><img src="https://upload.wikimedia.org/wikipedia/commons/c/cb/Flag_of_the_United_Arab_Emirates.svg"><strong>E. Árabes</strong></div>
+    <div class="flag-card"><img src="https://upload.wikimedia.org/wikipedia/commons/f/f6/Flag_of_Iraq.svg"><strong>Irak</strong></div>
+    <div class="flag-card"><img src="https://upload.wikimedia.org/wikipedia/commons/c/c0/Flag_of_Jordan.svg"><strong>Jordania</strong></div>
+    <div class="flag-card"><img src="https://upload.wikimedia.org/wikipedia/commons/a/aa/Flag_of_Kuwait.svg"><strong>Kuwait</strong></div>
+    <div class="flag-card"><img src="https://upload.wikimedia.org/wikipedia/commons/5/59/Flag_of_Lebanon.svg"><strong>Líbano</strong></div>
+    <div class="flag-card"><img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Flag_of_Libya.svg"><strong>Libia</strong></div>
+    <div class="flag-card"><img src="https://upload.wikimedia.org/wikipedia/commons/2/2c/Flag_of_Morocco.svg"><strong>Marruecos</strong></div>
+    <div class="flag-card"><img src="https://upload.wikimedia.org/wikipedia/commons/4/43/Flag_of_Mauritania.svg"><strong>Mauritania</strong></div>
+    <div class="flag-card"><img src="https://upload.wikimedia.org/wikipedia/commons/d/dd/Flag_of_Oman.svg"><strong>Omán</strong></div>
+    <div class="flag-card"><img src="https://upload.wikimedia.org/wikipedia/commons/0/00/Flag_of_Palestine.svg"><strong>Palestina</strong></div>
+    <div class="flag-card"><img src="https://upload.wikimedia.org/wikipedia/commons/6/65/Flag_of_Qatar.svg"><strong>Catar</strong></div>
+    <div class="flag-card"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a0/Flag_of_Somalia.svg"><strong>Somalia</strong></div>
+    <div class="flag-card"><img src="https://upload.wikimedia.org/wikipedia/commons/0/01/Flag_of_Sudan.svg"><strong>Sudán</strong></div>
+    <div class="flag-card"><img src="https://upload.wikimedia.org/wikipedia/commons/5/54/Flag_of_Syria_%282025-%29.svg"><strong>Siria</strong></div>
+    <div class="flag-card"><img src="https://upload.wikimedia.org/wikipedia/commons/c/ce/Flag_of_Tunisia.svg"><strong>Túnez</strong></div>
+    <div class="flag-card"><img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Flag_of_Yemen.svg"><strong>Yemen</strong></div>
+  </div>
+</section>
+
+<section class="reveal">
+  <div class="section-head">
+    <h2>Más de 11.000 Canales Mundiales</h2>
+    <div class="bar"></div>
+  </div>
+  <div class="flags-grid">
+    <div class="flag-card"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a4/Flag_of_the_United_States.svg"><strong>USA</strong></div>
+    <div class="flag-card"><img src="https://upload.wikimedia.org/wikipedia/commons/9/9a/Flag_of_Spain.svg"><strong>España</strong></div>
+    <div class="flag-card"><img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Flag_of_Brazil.svg"><strong>Brasil</strong></div>
+    <div class="flag-card"><img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg"><strong>Francia</strong></div>
+    <div class="flag-card"><img src="https://upload.wikimedia.org/wikipedia/commons/b/ba/Flag_of_Germany.svg"><strong>Alemania</strong></div>
+    <div class="flag-card"><img src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"><strong>Italia</strong></div>
+    <div class="flag-card"><img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Flag_of_the_People%27s_Republic_of_China.svg"><strong>China</strong></div>
+    <div class="flag-card"><img src="https://upload.wikimedia.org/wikipedia/commons/9/9e/Flag_of_Japan.svg"><strong>Japón</strong></div>
+    <div class="flag-card"><img src="https://upload.wikimedia.org/wikipedia/commons/2/21/Flag_of_Colombia.svg"><strong>Colombia</strong></div>
+  </div>
+</section>
+
+<section class="reveal">
+  <div class="faq-container">
+    <div class="faq-item">
+      <button class="faq-btn">¿Necesito antena parabólica? <span>▼</span></button>
+      <div class="faq-content"><p>No, solo necesitas internet. Nuestra tecnología procesa los 11.000 canales vía IPTV sin cables externos.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-btn">¿La calidad es FULL HD? <span>▼</span></button>
+      <div class="faq-content"><p>Sí, el sistema soporta resolución <b>FULL HD</b> y alta definición para que disfrutes la mejor imagen en tu hogar en Maicao.</p></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 <b class="firma">Al-Alam TV</b> · Maicao, La Guajira</p>
+</footer>
+
+<script>
+  window.addEventListener('load', () => {
+    document.getElementById('pBar').style.width = '100%';
+    setTimeout(() => {
+      document.body.classList.add('loaded');
+      revealElements();
+    }, 5000);
+  });
+
+  const revealElements = () => {
+    const reveals = document.querySelectorAll('.reveal');
+    reveals.forEach(el => {
+      if (el.getBoundingClientRect().top < window.innerHeight - 100) el.classList.add('active');
+    });
+  };
+  window.addEventListener('scroll', revealElements);
+
+  document.querySelectorAll('.faq-btn').forEach(btn => {
+    btn.addEventListener('click', () => btn.parentElement.classList.toggle('active'));
+  });
+</script>
+
+</body>
+</html>
