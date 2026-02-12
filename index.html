@@ -21,6 +21,37 @@
 
     * { margin: 0; padding: 0; box-sizing: border-box; font-family: var(--font); }
     
+    /* --- EMBLEMA DE SOLIDARIDAD (PALESTINA) --- */
+    .solidarity-emblem {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.9);
+      padding: 8px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 80px;
+      animation: fadeInRight 1.5s ease;
+    }
+
+    .solidarity-emblem img {
+      width: 100%;
+      height: auto;
+    }
+
+    .solidarity-emblem span {
+      font-size: 8px;
+      font-weight: bold;
+      color: #333;
+      margin-top: 4px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
     /* --- PANTALLA DE CARGA --- */
     #loader {
       position: fixed;
@@ -54,6 +85,7 @@
       background: linear-gradient(135deg, var(--rojo), var(--rojo-dark));
       display: flex; flex-direction: column; justify-content: center; align-items: center;
       color: white; text-align: center; padding: 20px;
+      position: relative;
       clip-path: polygon(0 0, 100% 0, 100% 92%, 0% 100%);
     }
 
@@ -108,7 +140,7 @@
     .flag-card img { width: 100%; height: 35px; object-fit: contain; margin-bottom: 5px; }
     .flag-card strong { font-size: 0.75rem; display: block; color: #555; }
 
-    /* --- NUEVA SECCIÓN: REQUISITOS --- */
+    /* --- REQUISITOS --- */
     .prep-box {
       background: #fff;
       border-left: 5px solid var(--rojo);
@@ -139,6 +171,13 @@
     @keyframes bounce { 0%, 100% {transform: translateY(0);} 50% {transform: translateY(-10px);} }
 
     footer { background: #111; color: white; padding: 40px 20px; text-align: center; }
+    footer a { color: var(--rojo); text-decoration: none; }
+    
+    /* Ajuste móvil para el emblema */
+    @media (max-width: 600px) {
+      .solidarity-emblem { top: 10px; right: 10px; width: 60px; }
+      .solidarity-emblem span { font-size: 6px; }
+    }
   </style>
 </head>
 <body>
@@ -163,6 +202,11 @@
 </a>
 
 <header>
+  <div class="solidarity-emblem">
+    <img src="https://imgproxy.attic.sh/insecure/f:png/plain/https://attic.sh/3eq45cncsnh03swrzxhah4fel39c" alt="Masjid Al-Aqsa">
+    <span>Palestine</span>
+  </div>
+
   <div class="logo-container animate__animated animate__zoomIn">
     <svg width="110" height="110" viewBox="0 0 140 140">
       <text x="70" y="80" text-anchor="middle" fill="#e60000" font-size="50" font-family="serif" font-weight="bold">العالم</text>
@@ -183,10 +227,22 @@
     <div class="bar"></div>
   </div>
   <div class="channels-grid">
-    <div class="channel-box"><img src="https://upload.wikimedia.org/wikipedia/en/f/f2/Aljazeera_eng.svg"><span>Al Jazeera</span></div>
-    <div class="channel-box"><img src="https://upload.wikimedia.org/wikipedia/commons/2/2e/Al_Jadeed_logo.png"><span>Al Jadeed</span></div>
-    <div class="channel-box"><img src="https://upload.wikimedia.org/wikipedia/commons/e/e9/MTV_Lebanon_logo.png"><span>MTV Lebanon</span></div>
-    <div class="channel-box"><img src="https://upload.wikimedia.org/wikipedia/en/7/70/MBC_Group_logo.svg"><span>MBC Group</span></div>
+    <div class="channel-box">
+      <img src="https://upload.wikimedia.org/wikipedia/en/f/f2/Aljazeera_eng.svg" alt="Al Jazeera">
+      <span>Al Jazeera</span>
+    </div>
+    <div class="channel-box">
+      <img src="https://upload.wikimedia.org/wikipedia/en/1/17/Al_Jadeed.PNG" alt="Al Jadeed">
+      <span>Al Jadeed</span>
+    </div>
+    <div class="channel-box">
+      <img src="https://www.pngkey.com/png/detail/899-8990235_mtv-lebanon-.png" alt="MTV Lebanon">
+      <span>MTV Lebanon</span>
+    </div>
+    <div class="channel-box">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/MBC_Group_Logo.svg" alt="MBC Group">
+      <span>MBC Group</span>
+    </div>
   </div>
 </section>
 
@@ -200,8 +256,8 @@
     <ul class="prep-list">
       <li><b>¿Qué marca es tu televisor?</b> (Samsung, LG, Sony, etc.)</li>
       <li><b>¿Es un Smart TV moderno o es antiguo?</b></li>
-      <li><b>¿Tienes algún dispositivo extra?</b> (TV Box, Fire Stick, Roku, etc.)</li>
       <li><b>¿Tu conexión a internet es estable?</b></li>
+      <li style="color: var(--rojo); font-weight: bold;">¿Sabías que instalamos dispositivos certificados por Google para máxima fluidez?</li>
     </ul>
     <p style="margin-top:20px; font-style:italic; text-align:center;">¡Con esto podré instalarte el servicio en minutos!</p>
   </div>
@@ -213,28 +269,28 @@
     <div class="bar"></div>
   </div>
   <div class="flags-grid">
-    <div class="flag-card"><img src="https://upload.wikimedia.org/wikipedia/commons/7/77/Flag_of_Algeria.svg"><strong>Argelia</strong></div>
-    <div class="flag-card"><img src="https://upload.wikimedia.org/wikipedia/commons/0/0d/Flag_of_Saudi_Arabia.svg"><strong>Arabia Saudí</strong></div>
-    <div class="flag-card"><img src="https://upload.wikimedia.org/wikipedia/commons/2/2c/Flag_of_Bahrain.svg"><strong>Baréin</strong></div>
-    <div class="flag-card"><img src="https://upload.wikimedia.org/wikipedia/commons/9/94/Flag_of_the_Comoros.svg"><strong>Comoras</strong></div>
-    <div class="flag-card"><img src="https://upload.wikimedia.org/wikipedia/commons/3/34/Flag_of_Djibouti.svg"><strong>Yibuti</strong></div>
-    <div class="flag-card"><img src="https://upload.wikimedia.org/wikipedia/commons/f/fe/Flag_of_Egypt.svg"><strong>Egipto</strong></div>
-    <div class="flag-card"><img src="https://upload.wikimedia.org/wikipedia/commons/c/cb/Flag_of_the_United_Arab_Emirates.svg"><strong>E. Árabes</strong></div>
-    <div class="flag-card"><img src="https://upload.wikimedia.org/wikipedia/commons/f/f6/Flag_of_Iraq.svg"><strong>Irak</strong></div>
-    <div class="flag-card"><img src="https://upload.wikimedia.org/wikipedia/commons/c/c0/Flag_of_Jordan.svg"><strong>Jordania</strong></div>
-    <div class="flag-card"><img src="https://upload.wikimedia.org/wikipedia/commons/a/aa/Flag_of_Kuwait.svg"><strong>Kuwait</strong></div>
-    <div class="flag-card"><img src="https://upload.wikimedia.org/wikipedia/commons/5/59/Flag_of_Lebanon.svg"><strong>Líbano</strong></div>
-    <div class="flag-card"><img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Flag_of_Libya.svg"><strong>Libia</strong></div>
-    <div class="flag-card"><img src="https://upload.wikimedia.org/wikipedia/commons/2/2c/Flag_of_Morocco.svg"><strong>Marruecos</strong></div>
-    <div class="flag-card"><img src="https://upload.wikimedia.org/wikipedia/commons/4/43/Flag_of_Mauritania.svg"><strong>Mauritania</strong></div>
-    <div class="flag-card"><img src="https://upload.wikimedia.org/wikipedia/commons/d/dd/Flag_of_Oman.svg"><strong>Omán</strong></div>
-    <div class="flag-card"><img src="https://upload.wikimedia.org/wikipedia/commons/0/00/Flag_of_Palestine.svg"><strong>Palestina</strong></div>
-    <div class="flag-card"><img src="https://upload.wikimedia.org/wikipedia/commons/6/65/Flag_of_Qatar.svg"><strong>Catar</strong></div>
-    <div class="flag-card"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a0/Flag_of_Somalia.svg"><strong>Somalia</strong></div>
-    <div class="flag-card"><img src="https://upload.wikimedia.org/wikipedia/commons/0/01/Flag_of_Sudan.svg"><strong>Sudán</strong></div>
-    <div class="flag-card"><img src="https://upload.wikimedia.org/wikipedia/commons/5/54/Flag_of_Syria_%282025-%29.svg"><strong>Siria</strong></div>
-    <div class="flag-card"><img src="https://upload.wikimedia.org/wikipedia/commons/c/ce/Flag_of_Tunisia.svg"><strong>Túnez</strong></div>
-    <div class="flag-card"><img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Flag_of_Yemen.svg"><strong>Yemen</strong></div>
+    <div class="flag-card"><img src="https://flagcdn.com/dz.svg"><strong>Argelia</strong></div>
+    <div class="flag-card"><img src="https://flagcdn.com/sa.svg"><strong>Arabia Saudí</strong></div>
+    <div class="flag-card"><img src="https://flagcdn.com/bh.svg"><strong>Baréin</strong></div>
+    <div class="flag-card"><img src="https://flagcdn.com/km.svg"><strong>Comoras</strong></div>
+    <div class="flag-card"><img src="https://flagcdn.com/dj.svg"><strong>Yibuti</strong></div>
+    <div class="flag-card"><img src="https://flagcdn.com/eg.svg"><strong>Egipto</strong></div>
+    <div class="flag-card"><img src="https://flagcdn.com/ae.svg"><strong>E. Árabes</strong></div>
+    <div class="flag-card"><img src="https://flagcdn.com/iq.svg"><strong>Irak</strong></div>
+    <div class="flag-card"><img src="https://flagcdn.com/jo.svg"><strong>Jordania</strong></div>
+    <div class="flag-card"><img src="https://flagcdn.com/kw.svg"><strong>Kuwait</strong></div>
+    <div class="flag-card"><img src="https://flagcdn.com/lb.svg"><strong>Líbano</strong></div>
+    <div class="flag-card"><img src="https://flagcdn.com/ly.svg"><strong>Libia</strong></div>
+    <div class="flag-card"><img src="https://flagcdn.com/ma.svg"><strong>Marruecos</strong></div>
+    <div class="flag-card"><img src="https://flagcdn.com/mr.svg"><strong>Mauritania</strong></div>
+    <div class="flag-card"><img src="https://flagcdn.com/om.svg"><strong>Omán</strong></div>
+    <div class="flag-card"><img src="https://flagcdn.com/ps.svg"><strong>Palestina</strong></div>
+    <div class="flag-card"><img src="https://flagcdn.com/qa.svg"><strong>Catar</strong></div>
+    <div class="flag-card"><img src="https://flagcdn.com/so.svg"><strong>Somalia</strong></div>
+    <div class="flag-card"><img src="https://flagcdn.com/sd.svg"><strong>Sudán</strong></div>
+    <div class="flag-card"><img src="https://flagcdn.com/sy.svg"><strong>Siria</strong></div>
+    <div class="flag-card"><img src="https://flagcdn.com/tn.svg"><strong>Túnez</strong></div>
+    <div class="flag-card"><img src="https://flagcdn.com/ye.svg"><strong>Yemen</strong></div>
   </div>
 </section>
 
@@ -244,15 +300,15 @@
     <div class="bar"></div>
   </div>
   <div class="flags-grid">
-    <div class="flag-card"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a4/Flag_of_the_United_States.svg"><strong>USA</strong></div>
-    <div class="flag-card"><img src="https://upload.wikimedia.org/wikipedia/commons/9/9a/Flag_of_Spain.svg"><strong>España</strong></div>
-    <div class="flag-card"><img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Flag_of_Brazil.svg"><strong>Brasil</strong></div>
-    <div class="flag-card"><img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg"><strong>Francia</strong></div>
-    <div class="flag-card"><img src="https://upload.wikimedia.org/wikipedia/commons/b/ba/Flag_of_Germany.svg"><strong>Alemania</strong></div>
-    <div class="flag-card"><img src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"><strong>Italia</strong></div>
-    <div class="flag-card"><img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Flag_of_the_People%27s_Republic_of_China.svg"><strong>China</strong></div>
-    <div class="flag-card"><img src="https://upload.wikimedia.org/wikipedia/commons/9/9e/Flag_of_Japan.svg"><strong>Japón</strong></div>
-    <div class="flag-card"><img src="https://upload.wikimedia.org/wikipedia/commons/2/21/Flag_of_Colombia.svg"><strong>Colombia</strong></div>
+    <div class="flag-card"><img src="https://flagcdn.com/us.svg"><strong>USA</strong></div>
+    <div class="flag-card"><img src="https://flagcdn.com/es.svg"><strong>España</strong></div>
+    <div class="flag-card"><img src="https://flagcdn.com/br.svg"><strong>Brasil</strong></div>
+    <div class="flag-card"><img src="https://flagcdn.com/fr.svg"><strong>Francia</strong></div>
+    <div class="flag-card"><img src="https://flagcdn.com/de.svg"><strong>Alemania</strong></div>
+    <div class="flag-card"><img src="https://flagcdn.com/it.svg"><strong>Italia</strong></div>
+    <div class="flag-card"><img src="https://flagcdn.com/cn.svg"><strong>China</strong></div>
+    <div class="flag-card"><img src="https://flagcdn.com/jp.svg"><strong>Japón</strong></div>
+    <div class="flag-card"><img src="https://flagcdn.com/co.svg"><strong>Colombia</strong></div>
   </div>
 </section>
 
@@ -260,7 +316,11 @@
   <div class="faq-container">
     <div class="faq-item">
       <button class="faq-btn">¿Necesito antena parabólica? <span>▼</span></button>
-      <div class="faq-content"><p>No, solo necesitas internet. Nuestra tecnología procesa los 11.000 canales vía IPTV sin cables externos.</p></div>
+      <div class="faq-content"><p>No, solo necesitas internet. Nuestra tecnología procesa los 11.000 canales vía IPTV (Television por Protocolo de Internet) sin cables externos.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-btn">¿Qué dispositivo instalan? <span>▼</span></button>
+      <div class="faq-content"><p>Para televisores antiguos o para mejorar la experiencia o para tvs de samsung o LG, instalamos **dispositivos certificados por Google**, lo que garantiza acceso oficial a la Play Store, actualizaciones de seguridad y un rendimiento ultra rápido en alta resolucion.</p></div>
     </div>
     <div class="faq-item">
       <button class="faq-btn">¿La calidad es FULL HD? <span>▼</span></button>
@@ -271,6 +331,7 @@
 
 <footer>
   <p>© 2026 <b class="firma">Al-Alam TV</b> · Maicao, La Guajira</p>
+  <p style="margin-top: 10px;">Email: <a href="mailto:ahmed2004kassem@proton.me">ahmed2004kassem@proton.me</a></p>
 </footer>
 
 <script>
