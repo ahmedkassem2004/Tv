@@ -464,10 +464,10 @@
       sT: "Özel bir kanal mı arıyorsunuz?", sD: "Kanal veya ülke adını yazarak kontrol edin.", sP: "Örn: TRT Spor, ATV, Show TV...", sR: "✅ FULL HD olarak mevcut!"
     },
     pt: {
-      load: "Carregando...", hero: "Sua TV agora é mundial. Acesse <b>mais de 11.000 canais internacionales</b>, esportes ao vivo e todo o contenido da Liga Árabe em <b>FULL HD</b>.",
+      load: "Carregando...", hero: "Sua TV ahora é mundial. Acesse <b>mais de 11.000 canais internacionales</b>, esportes ao vivo e todo o contenido da Liga Árabe em <b>FULL HD</b>.",
       wa: "Contate-nos ahora!", inst: "Instalar Agora", tInt: "Canais Internacionais", tPrep: "Antes de nos contatar", dPrep: "Para ayudarmos mejor, tenha estas informações prontas:",
       p1: "<b>Qual a marca da sua TV?</b> (Samsung, LG, Sony, etc.)", p2: "<b>É uma Smart TV moderna o antiga?</b>", p3: "<b>Sua conexão de internet é estável?</b>", p4: "Sabia que instalamos dispositivos certificados pelo Google para fluidez máxima?",
-      pf: "Com isso, posso instalar o serviço em minutos!", tLiga: "Cobertura Total Liga Árabe", tMun: "Mais de 11.000 Canais Mundiais",
+      pf: "Com eso, posso instalar o serviço em minutos!", tLiga: "Cobertura Total Liga Árabe", tMun: "Mais de 11.000 Canais Mundiais",
       q1: "Preciso de antena parabólica?", a1: "Não, você só precisa de internet. Nossa tecnologia funciona via IPTV sin cabos externos.",
       q2: "Qual dispositivo vocês instalam?", a2: "Para TVs antigas o mejor desempenho, instalamos dispositivos certificados pelo Google.",
       q3: "A calidad es FULL HD?", a3: "Sim, o sistema suporta resolução FULL HD para sua casa em Maicao.",
@@ -498,11 +498,10 @@
     document.getElementById('q2').innerText = t.q2; document.getElementById('a2').innerText = t.a2;
     document.getElementById('q3').innerText = t.q3; document.getElementById('a3').innerText = t.a3;
     
-    // Traducciones del buscador
     document.getElementById('search-title').innerText = t.sT;
     document.getElementById('search-desc').innerText = t.sD;
     document.getElementById('channelSearch').placeholder = t.sP;
-    window.searchResponseText = t.sR; // Guardar respuesta para el JS del buscador
+    window.searchResponseText = t.sR;
 
     const mapLiga = {".f-dz":"dz", ".f-sa":"sa", ".f-bh":"bh", ".f-km":"km", ".f-dj":"dj", ".f-eg":"eg", ".f-ae":"ae", ".f-iq":"iq", ".f-jo":"jo", ".f-kw":"kw", ".f-lb":"lb", ".f-ly":"ly", ".f-ma":"ma", ".f-mr":"mr", ".f-om":"om", ".f-ps":"ps", ".f-qa":"qa", ".f-so":"so", ".f-sd":"sd", ".f-sy":"sy", ".f-tn":"tn", ".f-ye":"ye"};
     for(let sel in mapLiga) document.querySelector(sel).innerText = t[mapLiga[sel]];
@@ -520,14 +519,46 @@
     document.body.style.direction = (lang === 'ar') ? 'rtl' : 'ltr';
   }
 
-  // --- LÓGICA IPTV-ORG INTEGRADA ---
+  // --- SUPER LOGICA DE BÚSQUEDA AMPLIADA ---
   let channelsDatabase = [];
+  
   async function loadIPTVDatabase() {
     try {
-      const response = await fetch('https://iptv-org.github.io/api/channels.json');
-      channelsDatabase = await response.json();
-    } catch (e) { console.error("Error loading IPTV database"); }
+      // 1. Cargar Base de datos principal (IPTV-ORG)
+      const resp1 = await fetch('https://iptv-org.github.io/api/channels.json');
+      channelsDatabase = await resp1.json();
+      console.log("Base de datos principal cargada.");
+
+      // 2. Función para procesar listas M3U8 y extraer nombres
+      const parseM3U = async (url, countryCode) => {
+        try {
+          const resp = await fetch(url);
+          const text = await resp.text();
+          const lines = text.split('\n');
+          lines.forEach(line => {
+            if(line.includes('#EXTINF')) {
+              // Extraer el nombre después de la coma
+              const nameMatch = line.split(',')[1];
+              if(nameMatch) {
+                channelsDatabase.push({
+                  name: nameMatch.trim(),
+                  country: countryCode
+                });
+              }
+            }
+          });
+        } catch (err) { console.error("Error cargando lista M3U:", url); }
+      };
+
+      // 3. Cargar las listas solicitadas
+      await parseM3U('https://www.tdtchannels.com/lists/tv.m3u8', 'ES');
+      await parseM3U('https://www.m3u.cl/lista/total.m3u', 'CL');
+      
+      console.log("Listas M3U añadidas. Total canales en buscador:", channelsDatabase.length);
+
+    } catch (e) { console.error("Error general cargando bases de datos"); }
   }
+  
   loadIPTVDatabase();
 
   window.searchResponseText = "✅ ¡Disponible en FULL HD!";
@@ -539,11 +570,10 @@
     if(query.length > 2) {
       searchInput.style.borderColor = 'var(--rojo)';
       
-      // Buscamos coincidencias reales
       const matches = channelsDatabase.filter(c => 
         c.name.toLowerCase().includes(query) || 
         (c.country && c.country.toLowerCase().includes(query))
-      ).slice(0, 3); // Mostramos solo 3 para mantener el diseño limpio
+      ).slice(0, 4); 
 
       if(matches.length > 0) {
         let resultsHtml = '';
